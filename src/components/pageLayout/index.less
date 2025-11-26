@@ -1,0 +1,104 @@
+@import '@/global.variable.less';
+
+.page-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  // 覆盖水印
+  .ant-select,
+  .ant-input,
+  .ant-btn,
+  .ant-input-number,
+  .ant-input-affix-wrapper {
+    z-index: 1;
+  }
+  .ant-tag {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-top-header {
+    width: 100%;
+    z-index: 0;
+    .ant-affix {
+      background: #f9f9f9;
+    }
+
+    .page-header-title {
+      display: flex;
+      align-items: center;
+      color: black;
+      font-weight: bold;
+      font-size: 16px;
+      .anticon {
+        margin-right: 10px;
+      }
+    }
+    .page-header-right-area {
+      display: flex;
+      align-items: center;
+      .language {
+        margin-right: 20px;
+        height: 20px;
+        line-height: 20px;
+        cursor: pointer;
+      }
+      .avator {
+        line-height: @baseFontSizeMiddle;
+        cursor: pointer;
+        img {
+          width: @baseFontSizeMiddle;
+          height: @baseFontSizeMiddle;
+          border-radius: 50%;
+          transform: scale(1.5);
+          margin-right: 10px;
+          vertical-align: text-bottom;
+          display: inline-block;
+          // background: url('/image/avatar1.png') 100% 100% / cover;
+        }
+        .display-name {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+      .busi-group-name {
+        cursor: pointer;
+        &:hover {
+          color: #1890ff;
+        }
+        svg {
+          margin-right: 4px;
+        }
+      }
+    }
+    .dashboard-detail-header-right svg {
+      margin-right: 4px;
+    }
+    .page-header-content {
+      flex: 1;
+      width: 100%;
+      height: 50px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & + div {
+      overflow: auto;
+      padding: 10px 6px 12px 12px; // 将原来 paddingRight 10px 拆开，以兼容出现滚动条的时候有距离右侧 6px 的间距
+      margin-right: 6px;
+      height: 100%;
+      &:not(.srm) > * {
+        background: #fff;
+        box-shadow: 0px 1px 8px 0 rgb(0 0 0 / 10%);
+      }
+    }
+  }
+  .platform-notification-alert {
+    padding: 0;
+    overflow: hidden;
+  }
+}

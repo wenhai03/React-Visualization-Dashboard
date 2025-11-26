@@ -1,0 +1,40 @@
+const en_US = {
+  title: 'Subscriptions',
+  search_placeholder: 'Search rules, tags, and receiving groups',
+  rule_name: 'Rule Name',
+  name: 'Subscription rule name',
+  sub_rule_name: 'Subscribe Alert Rule',
+  tags: 'Tags',
+  user_groups: 'Customize receiving team',
+  tag: {
+    key: {
+      label: 'Key',
+      tip: 'The label refers to the label of the alarm event. Alarm events are filtered through the following label matching rules. Trigger values are filtered for a specific value __trigger_value__. __Severity_ : The label name for the alarm level, S1 corresponds to a label value of 1, and so on. It takes effect only when all conditions are met.',
+    },
+    func: {
+      label: 'Operator',
+    },
+    value: {
+      label: 'Value',
+    },
+  },
+  redefine_severity: 'Customize Severity',
+  redefine: 'Redefine',
+  new_severity: 'New Severity',
+  redefine_channels: 'Channels',
+  new_channels: 'New Channels',
+  user_group_ids: 'Receiving Team',
+  for_duration: 'Duration (seconds)',
+  redefine_webhooks: 'Receiving Webhooks',
+  webhooks: 'New Webhooks',
+  webhooks_msg: 'Webhook is required',
+  prod: 'Type',
+  subscribe_btn: 'Subscribe',
+  all_bgid: 'Alarm rules for all service groups',
+  appoint_bgid: 'Alarm specifications of the specified service group',
+  appoint_alert_rule: 'Specify alarm rule',
+  alert_rule_required: 'Select an alarm rule',
+  current_group_team: 'Current business group team',
+  other_group_team: 'Other business group teams',
+};
+export default en_US;

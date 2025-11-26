@@ -1,0 +1,53 @@
+.traces-timeline-wrapper {
+  transition: 0.1s padding ease;
+  position: relative;
+  overflow: hidden;
+}
+.traces-timeline-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+.waterfall-legends-circle {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 5.5px;
+  border-radius: 100%;
+}
+.traces-timeline-drawer {
+  .ant-list {
+    font-size: 13px;
+  }
+  .ant-list-header {
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+  .ant-list-item {
+    padding: 4px 20px;
+  }
+}
+
+.metadata-header {
+  font-size: 13px;
+  margin-bottom: 20px;
+  &-info-key {
+    color: rgb(152, 162, 179);
+  }
+  &-info-value {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.metadata-codemirror-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.metadata-codemirror-wrapper {
+  font-size: 13px;
+  margin-bottom: 20px;
+}

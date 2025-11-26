@@ -1,0 +1,52 @@
+.critical-path-item-bar {
+  box-sizing: border-box;
+  position: relative;
+  height: 30px;
+  top: 0;
+  min-width: 2px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
+.water-fall-item-wrapper {
+  position: relative;
+  display: block;
+  user-select: none;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(245, 247, 250);
+  }
+}
+.water-fall-item-bar {
+  box-sizing: border-box;
+  position: relative;
+  height: 16px;
+  min-width: 2px;
+}
+.water-fall-item-text {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 24px;
+  max-width: 100%;
+  font-size: 14px;
+  & > * {
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+}
+.waterfall-duration {
+  font-weight: 400;
+  clear: both;
+  font-size: 12px;
+  line-height: 1.1429rem;
+  color: rgb(100, 106, 119);
+}
+
+.jump-link:hover {
+  text-decoration: underline;
+}

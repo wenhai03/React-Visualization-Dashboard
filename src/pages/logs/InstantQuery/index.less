@@ -1,0 +1,121 @@
+.es-discover-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+.es-discover-content {
+  display: flex;
+  gap: 8px;
+  max-height: 540px;
+  .es-discover-logs-table {
+    .ant-table {
+      margin-top: 0;
+      .ant-table-cell-ellipsis {
+        overflow: visible;
+        white-space: normal;
+        word-break: normal;
+      }
+    }
+  }
+}
+.erp-discover-content {
+  margin-top: 8px;
+}
+.es-discover-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.es-discover-sidebar-title {
+  margin-bottom: 18px;
+}
+.es-discover-sidebar-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.es-discover-fields-title {
+  font-weight: bolder;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.es-discover-fields-item {
+  cursor: pointer;
+  min-height: 24px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  .es-discover-fields-item-oper {
+    display: none;
+    cursor: pointer;
+  }
+  &:hover {
+    .es-discover-fields-item-oper {
+      display: block;
+    }
+  }
+}
+.es-discover-fields-item-content {
+  width: calc(100% - 30px);
+  word-wrap: break-word;
+  word-break: normal;
+  line-height: 1.2;
+  padding: 4px 0;
+}
+.es-discover-main {
+  width: 100%;
+  flex-shrink: 0;
+  border: 1px solid #d9d9d9;
+}
+.es-discover-chart {
+  height: 190px;
+}
+.es-discover-chart-title {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.es-discover-chart-content {
+  height: 150px;
+  padding: 10px 0;
+  .d3-graph-container {
+    .ts-graph-zoom-resetBtn {
+      display: none !important;
+    }
+  }
+}
+.es-discover-logs-row {
+  line-height: 2em;
+  max-height: none;
+  overflow: hidden;
+  margin-bottom: 0;
+  dt,
+  dd {
+    display: inline;
+  }
+  dt {
+    background-color: #f2f2f2;
+    color: #343741;
+    padding: 2px 4px;
+    margin-right: 4px;
+    word-break: normal;
+  }
+  dd {
+    margin-right: 4px;
+  }
+}
+
+.log-highlight-mask {
+  background-color: #ffff00;
+}
+
+.highlight-row {
+  background-color: rgb(255, 249, 232);
+}

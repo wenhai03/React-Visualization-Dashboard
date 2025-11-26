@@ -1,0 +1,99 @@
+.log-stream-wrapper {
+  .ant-divider-horizontal {
+    margin: 0;
+  }
+}
+.log-stream-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgb(211, 218, 230);
+  box-shadow: rgba(211, 218, 230, 0.7) 0px 2px 2px -1px;
+  .ant-col {
+    height: 32px;
+    line-height: 32px;
+    font-weight: bold;
+  }
+}
+.minimap-column {
+  flex: 1 0 0%;
+  overflow: hidden;
+  min-width: 100px;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.log-stream-filter {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.log-stream-popover {
+  cursor: pointer;
+}
+.log-stream-view-wrapper {
+  overflow: hidden scroll;
+  font-family: 'Roboto Mono', Consolas, Menlo, Courier, monospace;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.log-text-small {
+  font-size: 12px !important;
+}
+.log-text-medium {
+  font-size: 14px !important;
+}
+.log-text-large {
+  font-size: 16px !important;
+}
+.log-detail-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+  z-index: 1;
+}
+.log-stream-row {
+  position: relative;
+  line-height: 1.5;
+  padding: 5px 0;
+  &:hover {
+    background-color: rgba(0, 119, 204, 0.098);
+    .log-detail-btn {
+      display: inline-block;
+      padding: 0px 6px;
+      letter-spacing: -4px;
+    }
+  }
+}
+.log-stream-popover-lable {
+  display: inline-block;
+  margin: 10px;
+}
+
+.log-entry-row-wrapper {
+  flex: 1 0 0%;
+  padding-right: 20px;
+  text-overflow: ellipsis;
+  .highlight-mark {
+    mark {
+      background-color: rgb(244, 131, 182);
+    }
+  }
+  .active-highlight-mark {
+    mark {
+      background-color: rgb(240, 78, 152);
+    }
+  }
+}
+.log-entry-wrap {
+  overflow: visible;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.log-entry-nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.log-highlight-mask {
+  background-color: #ffff00;
+}

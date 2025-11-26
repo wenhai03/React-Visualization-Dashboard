@@ -1,0 +1,67 @@
+const en_US = {
+  title: 'Metrics Query',
+  query_btn: 'Execute',
+  input_tasks: 'input_tasks',
+  input_task: {
+    title: 'Metric collection task',
+    add_title: 'Create metric collection task',
+    edit_title: 'Modify metric collection task',
+    task_type: 'Task source',
+    type: 'Acquisition object',
+    status: 'Task status',
+    status_1: 'Took effect',
+    status_2: 'Not activated',
+    status_0: 'Synchronization service exception',
+    locale_task: 'Custom task',
+    global_task: 'System built-in',
+    type_1: 'All Hosts',
+    type_2: 'Business group host',
+    type_3: 'Designated host',
+    type_4: 'On Cloud',
+    type_6: 'Run on the container',
+    collector_tag: 'Common collector',
+    collector_tag_tip:
+      'Ensure that the public collector can access the monitored services. If the service group needs to use its own node to collect data, select Run on Host.',
+    os: 'Os',
+    os_placeholder: 'If no value is specified, all operating systems are included',
+    rt: 'Run container',
+    rt_placeholder: 'If no value is specified, all environments are included',
+    collect_object: 'Collect object',
+    host: 'Host',
+    config_list_tip: 'The configuration list cannot be empty. Please add a configuration',
+    config_detail: 'Config details',
+    custom: 'Custom',
+    no_task: 'No task',
+    type_tip: `Business group host:
+1, when the operating environment and operating system are empty, it means that all, at most one, low level;
+2, the running environment or operating system of any one is empty, meaning that the other is not limited, and at the same time can exist only one is empty, the same configuration value can not be repeated, level;
+3, when both are not empty, the combined value of the two cannot be repeated, and the level is high.`,
+    on_container: 'Run on the container',
+    on_host: 'Run on the host',
+    on_cloud: 'Run on the cloud',
+    on_cloud_tip:
+      'This type of indicator does not support cloud monitoring, and can only be monitored through network connected services, such as mysgl/mg',
+    on_container_tip:
+      'cndgraf/logs.items.*** Indicates the configuration of log collection items. *** is the corresponding topic for kafka, which has the same value as the topic = "cndgraf" configuration in the configuration content',
+    metric_name_tip: 'To learn about currently supported collection metrics, see:',
+    choose_from: 'Choose which one?',
+    choose_from_tip: `choose from docker when deploy in k8s,
+otherwise chhose from host.`,
+    metric_name_placeholder: 'Enter the indicator name and press Enter to query',
+    note: 'Note',
+    can_be_collected: 'Indicators that can be collected',
+    auto_builtin: 'Enabling associated alarm',
+    enable_task: 'Enable task',
+    batch_status: 'Batch update status',
+    delete_tip:
+      'If no collection objects are configured, the current indicator collection task will be cleared after being saved. Do you want to continue?',
+    operations_tip: 'The container configuration is uploaded and cannot be modified on the page',
+  },
+  overview: {
+    title: 'Summary of effective tasks',
+    config_content: 'Content',
+    relevance_host: 'Relevance host',
+    metric_name: 'Metric name',
+  },
+};
+export default en_US;

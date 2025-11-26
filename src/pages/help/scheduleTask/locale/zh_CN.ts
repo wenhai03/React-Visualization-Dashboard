@@ -1,0 +1,28 @@
+const zh_CN = {
+  title: '定时任务',
+  task_name: '任务名称',
+  task_name_placeholder: '搜索任务名称',
+  task_type: '任务类型',
+  period_type: '周期类型',
+  periodic_task: '周期任务',
+  one_time_task: '一次性任务',
+  time_str: '时间周期',
+  time_str_tip:
+    '根据类型不同使用不周的时间单位 按年 02-03 03:00:00 按月 03 03:00:00 按天 03:00:00 按周 7 03:00:00 间隔时间(秒) 10',
+  last_exec_at: '最后执行时间',
+  next_exec_at: '预计下次执行时间',
+  endpoint: '运行的节点',
+  result: '运行结果',
+  run_success: '运行成功',
+  run: '运行',
+  in_operation: '运行中',
+  non_execution: '未执行',
+  no: '无',
+  edit_title: '编辑调度任务',
+  year: '每年',
+  month: '每月',
+  day: '每天',
+  week: '每周',
+  seconds: '时间间隔',
+};
+export default zh_CN;

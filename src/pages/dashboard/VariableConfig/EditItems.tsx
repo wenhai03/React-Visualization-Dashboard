@@ -1,0 +1,224 @@
+import React, { useState, useEffect } from 'react';
+import { Modal, Table, Space, Button } from 'antd';
+import { ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined } from '@ant-design/icons';
+import { arrayMoveImmutable } from 'array-move';
+import _ from 'lodash';
+import { useTranslation } from 'react-i18next';
+import { IRawTimeRange } from '@/components/TimeRangePicker';
+import { Datasource } from '@/App';
+import EditItem from './EditItem';
+import { IVariable } from './definition';
+
+interface IProps {
+  id: string;
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+  value?: IVariable[];
+  range: IRawTimeRange;
+  onChange: (v?: IVariable[]) => void;
+  groupedDatasourceList: { [key: string]: Datasource[] };
+}
+
+export default function EditItems(props: IProps) {
+  const { t } = useTranslation('dashboard');
+  const { visible, setVisible, onChange, value, range, id, groupedDatasourceList } = props;
+  const datasourceVars = _.filter(value, { type: 'datasource' });
+  const [data, setData] = useState<IVariable[]>([]);
+  const [record, setRecord] = useState<IVariable>({
+    name: '',
+    type: 'query',
+    definition: '',
+    value: '',
+    datasource: {
+      cate: 'prometheus',
+    },
+  });
+  const [recordIndex, setRecordIndex] = useState<number>(-1);
+  const [mode, setMode] = useState<'list' | 'add' | 'edit'>('list');
+
+  useEffect(() => {
+    if (value) {
+      setData(value);
+    }
+  }, [value]);
+
+  return (
+    <Modal
+      title={t(`var.title.${mode}`)}
+      width={1000}
+      visible={visible}
+      onOk={() => {
+        setVisible(false);
+      }}
+      onCancel={() => {
+        setVisible(false);
+        setMode('list');
+      }}
+      wrapClassName='variable-modal'
+      footer={null}
+    >
+      {mode === 'list' ? (
+        <Table
+          rowKey={(record) => {
+            return `${record.type}${record.name}${record.definition}`;
+          }}
+          size='small'
+          dataSource={data}
+          tableLayout='fixed'
+          columns={[
+            {
+              title: t('var.name'),
+              dataIndex: 'name',
+              width: 150,
+              render: (text, record, idx) => {
+                return (
+                  <a
+                    onClick={() => {
+                      setMode('edit');
+                      setRecordIndex(idx);
+                      setRecord(record);
+                    }}
+                  >
+                    {text}
+                  </a>
+                );
+              },
+            },
+            {
+              title: t('var.type'),
+              dataIndex: 'type',
+              width: 100,
+            },
+            {
+              title: t('var.definition'),
+              dataIndex: 'definition',
+              render: (text, record) => {
+                if (record.type === 'textbox') {
+                  return record.defaultValue;
+                }
+                return text;
+              },
+            },
+            {
+              title: t('common:operations'),
+              width: 150,
+              render: (_text, record, idx) => {
+                return (
+                  <Space>
+                    <Button
+                      type='link'
+                      size='small'
+                      onClick={() => {
+                        const newData = arrayMoveImmutable(data, idx, idx + 1);
+                        setData(newData);
+                        onChange(newData);
+                      }}
+                      disabled={idx === data.length - 1}
+                    >
+                      <ArrowDownOutlined />
+                    </Button>
+                    <Button
+                      type='link'
+                      size='small'
+                      onClick={() => {
+                        const newData = arrayMoveImmutable(data, idx, idx - 1);
+                        setData(newData);
+                        onChange(newData);
+                      }}
+                      disabled={idx === 0}
+                    >
+                      <ArrowUpOutlined />
+                    </Button>
+                    <Button
+                      type='link'
+                      size='small'
+                      onClick={() => {
+                        const newData = [
+                          ...data,
+                          {
+                            ...record,
+                            name: 'copy_of_' + record.name,
+                          },
+                        ];
+                        setData(newData);
+                        onChange(newData);
+                      }}
+                    >
+                      <CopyOutlined />
+                    </Button>
+                    <Button
+                      type='link'
+                      size='small'
+                      onClick={() => {
+                        const newData = _.cloneDeep(data);
+                        newData.splice(idx, 1);
+                        setData(newData);
+                        onChange(newData);
+                      }}
+                    >
+                      <DeleteOutlined />
+                    </Button>
+                  </Space>
+                );
+              },
+            },
+          ]}
+          pagination={false}
+          footer={() => {
+            return (
+              <Button
+                type='primary'
+                onClick={() => {
+                  setMode('add');
+                  setRecordIndex(data.length);
+                  setRecord({
+                    name: '',
+                    type: 'query',
+                    definition: '',
+                    value: '',
+                    datasource: {
+                      cate: 'prometheus',
+                    },
+                  });
+                }}
+              >
+                {t('var.btn')}
+              </Button>
+            );
+          }}
+        />
+      ) : (
+        <EditItem
+          id={id}
+          range={range}
+          index={recordIndex}
+          datasourceVars={datasourceVars}
+          data={record}
+          vars={data}
+          groupedDatasourceList={groupedDatasourceList}
+          onOk={(val) => {
+            let newData = data;
+            if (mode === 'add') {
+              newData = [...data, val];
+            } else if (mode === 'edit') {
+              newData = _.map(data, (item, i) => {
+                if (i === recordIndex) {
+                  return val;
+                }
+                return item;
+              });
+            }
+            setData(newData);
+            onChange(newData);
+            setMode('list');
+            setRecordIndex(-1);
+          }}
+          onCancel={() => {
+            setMode('list');
+            setRecordIndex(-1);
+          }}
+        />
+      )}
+    </Modal>
+  );
+}

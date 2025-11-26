@@ -1,0 +1,76 @@
+const en_US = {
+  title: 'Other Settings',
+  container: {
+    title: 'Home Settings',
+    dashboard_cate: 'Dashboard Cate',
+    dashboard_name: 'Dashboard Name',
+    all_prom_ql: 'All container query statements',
+    abnormal_prom_ql: 'Exception container query statement',
+  },
+  es_index: {
+    title: 'ES index',
+    base_index_title: 'Base log index (default index)',
+    apm: 'APM',
+    app: 'App',
+    host: 'Host',
+    pod: 'POD',
+    container: 'Container',
+    syslog: 'Syslog',
+    dial: 'DIal',
+    home_log_index: 'Home log',
+    apm_map_index: 'APM map index',
+    apm_error_index: 'APM error index',
+    apm_load_index: 'APM load index',
+    apm_span_index: 'APM span index',
+    apm_trace_index: 'APM trace index',
+    apm_metrics_index: 'APM metrics index',
+    elastic_graf_log_index: 'Collector log index',
+    elastic_k8s_event_index: 'k8s event log',
+    network_index_title: 'network log index',
+    network_log_datasource: 'network log datasource',
+    elastic_network_auth_index: 'Network auth index',
+    elastic_sang_for_log_index: 'SangFor log index',
+    elastic_360_log_index: '360 device log index'
+  },
+  permission: {
+    title: 'Permission setting',
+    sync: 'synchronization',
+    sync_label: 'All service group ES role permissions',
+    success: 'Synchronization succeeded',
+    share_switch_label: 'Verify the permission to query chart sharing data',
+    on: 'On',
+    off: 'Off',
+    maintenance_mode: 'Maintenance mode',
+    maintenance_mode_tip:
+      'When this status is enabled, the real-time query of all alarms is suspended, and no alarms are generated or sent',
+    verify_data_frequency: 'Verify data alarm frequency',
+    verify_data_frequency_tip:
+      '0: indicates that the test task is not executed. Non-0: verifies whether all public nodes for which the test task is enabled are valid. Verify that all the public collectors that are enabled and running counter collection tasks on the cloud are valid',
+    data_sync: 'Internal configuration import',
+    data_sync_tip:
+      'The information includes built-in dashboards, built-in alarm rules, default log collection configurations, APM configuration items, collector deployment scripts, collector default configurations, service group timing indicator filtering configurations, and user ids associated with database tables.',
+    collect_config_sync: 'Global task import',
+    collect_config_sync_tip:
+      'Synchronize indicator collection and log collection configurations. The original configurations will be cleared. Exercise caution when performing this operation',
+    built_in_sync: 'Built-in data code value synchronization',
+    built_in_sync_tip:
+      'Built-in data (built-in classification, built-in details) will automatically generate code values, and do a good job of classification and detail association (built-in classification, built-in collection classification)',
+    metrics: 'Index collection task',
+    log: 'Log collection task',
+    es_index_tpl: 'es index template',
+    topic_exist_title: 'Topic already exists',
+    topic_exist_tip: 'Service group {{busi_group_name}} already has a log collection task whose topic is {{topic}}',
+    network_auth_ip: 'Network auth ip',
+  },
+  apm: {
+    title: 'Apm configuration',
+    max_trace_items: 'Maximum number of link details',
+    transaction_group_bucket_size: 'Trace the maximum number of transactions',
+  },
+  log: {
+    title: 'Log configuration',
+    date_zone: 'Display time zone',
+    data_size: 'Number of data bars',
+  },
+};
+export default en_US;

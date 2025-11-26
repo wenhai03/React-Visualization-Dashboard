@@ -1,0 +1,222 @@
+.home {
+  width: 176px;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+  &.collapse {
+    width: 48px;
+    padding-left: 0px;
+    .name {
+      width: 32px;
+      span {
+        transition: none;
+        display: none;
+      }
+    }
+  }
+  height: 100%;
+  display: flex;
+  height: 50px;
+  background: @primary-color;
+  padding-top: 5px;
+  strong {
+    color: #fff;
+    margin-left: 5px;
+  }
+  .name {
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    height: 50px;
+    width: 144px;
+    line-height: 50px;
+    text-align: center;
+    img {
+      width: 32px;
+      height: 32px;
+      vertical-align: middle;
+      transition: 0.3s all;
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .collapse-icon {
+      position: absolute;
+      width: 32px;
+      right: -36px;
+    }
+  }
+  .collapse-area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding-right: 16px;
+    justify-content: flex-end;
+  }
+}
+.menu-collapsed {
+  text-align: left;
+  border-radius: 0;
+  &:hover,
+  &:focus {
+    border-color: #1890ff;
+    background: #1890ff;
+  }
+}
+.collapseBtn {
+  color: #8c8c8c;
+  background: #f0f0f0;
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  &:hover,
+  &:focus {
+    color: @primary-color;
+    background: #f0f0f0;
+  }
+}
+.ant-menu {
+  width: 176px;
+  flex: 1;
+  overflow: hidden overlay;
+  &.left-menu-container {
+    height: calc(100% - 50px);
+    padding-top: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  &.ant-menu-inline-collapsed {
+    width: 48px;
+    .ant-menu-submenu-selected .ant-menu-submenu-title {
+      background-color: rgba(183, 196, 209, 0.32);
+    }
+  }
+  &.ant-menu-inline-collapsed:not(.ant-layout-sider-children > ul) {
+    width: 48px;
+  }
+  .ant-menu-item.holder {
+    height: calc(100% - 300px);
+    &.ant-menu-item-selected {
+      background: #001529;
+    }
+  }
+  .ant-menu-submenu-title,
+  .ant-menu-item {
+    &:hover {
+      background-color: rgba(183, 196, 209, 0.32);
+    }
+  }
+  .ant-menu-submenu .ant-menu-title-content {
+    font-size: 13px;
+    user-select: none;
+  }
+  .avator {
+    line-height: @baseFontSizeMiddle;
+    img {
+      width: @baseFontSizeMiddle;
+      height: @baseFontSizeMiddle;
+      border-radius: 50%;
+      transform: scale(1.5);
+      margin-right: 10px;
+      vertical-align: text-bottom;
+      display: inline-block;
+      background: url('/image/avatar1.png') 100% 100% / cover;
+    }
+  }
+  .ant-menu-item .ant-menu-item-icon,
+  .ant-menu-submenu-title .ant-menu-item-icon,
+  .ant-menu-item .anticon,
+  .ant-menu-submenu-title .anticon {
+    transition: none;
+  }
+  .ant-menu-inline .ant-menu-item::after {
+    border: none;
+  }
+
+  .menu-item-holder {
+    flex: 1;
+  }
+  .ant-tooltip-arrow-content {
+    background: #fff;
+  }
+  .ant-tooltip-inner {
+    // color: @menu-item-color;
+    background: #fff;
+  }
+}
+.ant-menu-inline,
+.ant-menu-vertical,
+.ant-menu-vertical-left {
+  border: none;
+}
+.ant-menu-inline-collapsed .ant-menu-submenu-title,
+.ant-menu-inline-collapsed > .ant-menu-item {
+  padding: 0 calc(50% - 16px / 2) !important;
+}
+.menu-collapse-icon {
+  font-size: 14px;
+}
+
+.system-version {
+  margin: 0;
+  display: inline-block;
+  opacity: 0.8;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-container {
+  .ant-menu-sub {
+    .ant-menu-item {
+      color: @menu-inline-submenu-color;
+    }
+    .ant-menu-item-selected {
+      background-color: rgba(183, 196, 209, 0.32);
+    }
+  }
+  .ant-menu-submenu {
+    .ant-menu-submenu-arrow::before {
+      transform: rotate(225deg) translateX(2.5px) !important;
+    }
+    .ant-menu-submenu-arrow::after {
+      transform: rotate(-225deg) translateX(2.5px) !important;
+    }
+  }
+  .ant-menu-submenu-open {
+    .ant-menu-submenu-arrow {
+      transform: rotate(90deg) translateX(2.5px) translateY(4px) !important;
+    }
+  }
+}
+.ant-popover-content {
+  .ant-menu-item {
+    height: 40px;
+    line-height: 40px;
+    color: @menu-inline-submenu-color;
+  }
+  .ant-menu-item:hover {
+    background-color: rgba(183, 196, 209, 0.32);
+  }
+}
+
+.menu-popover > div {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  right: 24px;
+  padding-left: 72px;
+}
+
+.menu-selected {
+  background-color: rgba(183, 196, 209, 0.32);
+}
+
+.menu-collapsed-popover-title {
+  font-weight: bold;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+}

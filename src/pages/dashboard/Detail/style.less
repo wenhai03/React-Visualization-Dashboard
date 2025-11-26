@@ -1,0 +1,131 @@
+.dashboard {
+  .ant-table-wrapper {
+    padding: 0 10px 10px;
+  }
+}
+
+.dashboard-detail-container {
+  padding: 0 !important;
+}
+
+.dashboard-detail-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f9f9f9 !important; // 覆盖 pageLayout 上面约定的样式
+  box-shadow: unset !important;
+  .variable-area {
+    display: flex;
+    .date-picker-area {
+      display: flex;
+      width: 400px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+  }
+
+  .dashboard-detail-content-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    background-color: unset !important;
+  }
+  .dashboards-panels {
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: unset !important;
+
+    .ant-tooltip-inner {
+      a {
+        color: #fff;
+        text-decoration:underline
+      }
+    }
+  }
+
+  .charts {
+    padding: 0px 20px 15px;
+    .ant-collapse {
+      margin-bottom: 15px;
+    }
+    .ant-collapse-header {
+      font-size: @baseFontSizeTiny;
+      height: 40px;
+    }
+    .ant-collapse-extra {
+      margin-top: -3px;
+      button {
+        font-size: @baseFontSizeTiny;
+      }
+    }
+    .ant-collapse-content-box {
+      display: flex;
+      padding: 2px;
+      .empty-group-holder {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  }
+
+  .react-grid-item > .react-resizable-handle::after{
+    border-right: 2px solid #E3E4E6;
+    border-bottom: 2px solid #E3E4E6;
+  }
+
+  .scroll-container {
+    .ant-table-scroll-horizontal {
+      .ant-table-body::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+      }
+      .ant-table-body::-webkit-scrollbar-corner {
+        background-color: transparent;
+      }
+      .ant-table-body::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background: rgba(0,0,0,0.5);;
+      }
+      .ant-table-body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        background: unset;
+      }
+    }
+  }
+  .scroll-container::-webkit-scrollbar {
+    height: 10px;
+    width: 4px;
+  }
+  .scroll-container::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #ccc;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: unset;
+  }
+}
+
+// 现在仪表盘里面边框线太多了，尝试去掉 collapse 的所有边框线
+.n9e-dashboard-group {
+  .ant-collapse,
+  .ant-collapse-item,
+  .ant-collapse-content {
+    border: 0 none;
+    background-color: #f9f9f9;
+  }
+  .ant-collapse-extra {
+    display: none;
+  }
+  .ant-collapse-header:hover {
+    .ant-collapse-extra {
+      display: block;
+    }
+  }
+}

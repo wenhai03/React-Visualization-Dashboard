@@ -1,0 +1,36 @@
+.builtin-container {
+  .cate-list-item {
+    padding: 8px;
+    .cate-list-item-extra {
+      display: none;
+      font-size: 14px;
+    }
+    &:hover {
+      .cate-list-item-extra {
+        display: block;
+      }
+    }
+  }
+  .cate-list-item.is-last-favorite {
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+}
+
+.alert-rules-build-in-import-code {
+  margin-bottom: 18px;
+  .ant-collapse-content-box {
+    padding: 0;
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+  .ant-form-item-control-input {
+    min-height: 0;
+  }
+}
+
+@media screen and(max-height: 720px) {
+  .alert-rules-build-in-import-code textarea.ant-input {
+    height: calc(100vh - 405px);
+  }
+}

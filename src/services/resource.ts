@@ -1,0 +1,234 @@
+import request from '@/utils/request';
+import { RequestMethod, IBasePagingParams } from '@/store/common';
+import { collectItem, collect_type, prefixType } from '@/store/businessInterface';
+import { BASE_API_PREFIX } from '@/utils/constant';
+
+// 新建资源分组
+export const addResourceGroup = function (params: { path: string; node: string }) {
+  return request(`${BASE_API_PREFIX}/classpaths`, {
+    method: RequestMethod.Post,
+    data: params,
+  });
+};
+
+// 获取分组列表
+export const getResourceGroups = function (query?: string, p = 1) {
+  return request(`${BASE_API_PREFIX}/classpaths`, {
+    method: RequestMethod.Get,
+    params: {
+      query,
+      limit: 30,
+      p,
+    },
+  });
+};
+// 获取分组列表
+export const getResourceAllGroups = function (limit, p = 1, query?: string) {
+  return request(`${BASE_API_PREFIX}/classpaths`, {
+    method: RequestMethod.Get,
+    params: {
+      query,
+      limit,
+      p,
+    },
+  });
+};
+
+// 获取收藏分组
+export const getFavoritesResourceGroups = function () {
+  return request(`${BASE_API_PREFIX}/classpaths/favorites`, {
+    method: RequestMethod.Get,
+  });
+};
+
+// 添加收藏分组
+export const addFavoriteGroup = function (id: number) {
+  return request(`${BASE_API_PREFIX}/classpath/${id}/favorites`, {
+    method: RequestMethod.Post,
+    data: {
+      id,
+    },
+  });
+};
+
+// 删除收藏分组
+export const deleteFavoriteGroup = function (id: number) {
+  return request(`${BASE_API_PREFIX}/classpath/${id}/favorites`, {
+    method: RequestMethod.Delete,
+    data: {
+      id,
+    },
+  });
+};
+
+// 删除分组
+export const deleteResourceGroup = function (id: number) {
+  return request(`${BASE_API_PREFIX}/classpath/${id}`, {
+    method: RequestMethod.Delete,
+  });
+};
+
+// 修改分组
+export const updateResourceGroup = function (data: { path?: string; node?: string } & { id: number }) {
+  return request(`${BASE_API_PREFIX}/classpath/${data.id}`, {
+    method: RequestMethod.Put,
+    data,
+  });
+};
+
+//获取分组下资源列表
+export const getResourceList = function (params: { id: number; prefix: prefixType } & IBasePagingParams) {
+  return request(`${BASE_API_PREFIX}/classpath/${params.id}/resources`, {
+    method: RequestMethod.Get,
+    params: {
+      ...params,
+      id: undefined,
+    },
+  });
+};
+
+//获取任意分组下所有资源列表
+export const getResourceListAll = function (query?: string) {
+  return request(`${BASE_API_PREFIX}/resources`, {
+    method: RequestMethod.Get,
+    params: { qres: query },
+  });
+};
+
+//分组删除资源
+export const deleteResourceItem = function (id: number, ident: string[]) {
+  return request(`${BASE_API_PREFIX}/classpath/${id}/resources`, {
+    method: RequestMethod.Delete,
+    data: ident,
+  });
+};
+
+//彻底删除资源
+export const deleteResource = function (id: number) {
+  return request(`${BASE_API_PREFIX}/resource/${id}`, {
+    method: RequestMethod.Delete,
+  });
+};
+
+// 批量修改资源分组
+export const updateResourceToGroup = function (params: { res_idents: string[]; classpath_ids: string[] }) {
+  return request(`${BASE_API_PREFIX}/resources/classpaths`, {
+    method: RequestMethod.Put,
+    data: params,
+  });
+};
+
+//分组添加资源
+export const addGroupResource = function (params: { id: number; data: Array<string> }) {
+  return request(`${BASE_API_PREFIX}/classpath/${params.id}/resources`, {
+    method: RequestMethod.Post,
+    data: params.data,
+  });
+};
+
+//分组删除资源
+export const deleteGroupResource = function (id: number, data: Array<string>) {
+  return request(`${BASE_API_PREFIX}/classpath/${id}/resources`, {
+    method: RequestMethod.Delete,
+    data,
+  });
+};
+
+//获取分组详情
+export const getResourceDetail = function (id: number) {
+  return request(`${BASE_API_PREFIX}/resource/${id}`, {
+    method: RequestMethod.Get,
+  });
+};
+
+//更新备注
+export const updateResourceDetailNote = function (data: { ids: number[]; note: string }) {
+  return request(`${BASE_API_PREFIX}/resources/note`, {
+    method: RequestMethod.Put,
+    data,
+  });
+};
+
+//更新tags
+export const updateResourceDetailTags = function (data: { ids: number[]; tags: string }) {
+  return request(`${BASE_API_PREFIX}/resources/tags`, {
+    method: RequestMethod.Put,
+    data,
+  });
+};
+
+//修改机器屏蔽时间
+export const updateResourceMute = function (data: { ids: Array<number>; btime: number; etime: number }) {
+  return request(`${BASE_API_PREFIX}/resources/mute`, {
+    method: RequestMethod.Put,
+    data,
+  });
+};
+
+//创建采集配置
+export const createCollectSetting = function (data: Partial<collectItem>) {
+  return request(`${BASE_API_PREFIX}/collect-rules`, {
+    method: RequestMethod.Post,
+    data,
+  });
+};
+
+//克隆采集配置
+export const cloneCollectSetting = function (data: Partial<collectItem>) {
+  return request(`${BASE_API_PREFIX}/v2/collect-rules`, {
+    method: RequestMethod.Post,
+    data,
+  });
+};
+
+//修改采集配置
+export const updateCollectSetting = function (data: Partial<collectItem>) {
+  return request(`${BASE_API_PREFIX}/collect-rule/${data.id}`, {
+    method: RequestMethod.Put,
+    data,
+  });
+};
+
+//查询采集配置
+export const getCollectSettings = function (type: collect_type) {
+  return function (params: { id: number } & IBasePagingParams) {
+    return request(`${BASE_API_PREFIX}/classpath/${params.id}/collect-rules`, {
+      method: RequestMethod.Get,
+      params: {
+        ...params,
+        type,
+      },
+    });
+  };
+};
+
+//删除采集配置
+export const deleteCollectSetting = function (ids: Array<number>) {
+  return request(`${BASE_API_PREFIX}/collect-rules`, {
+    method: RequestMethod.Delete,
+    data: {
+      ids,
+    },
+  });
+};
+
+//删除采集配置
+export const regCheck = function (data: {
+  tags_pattern?: Object;
+  func?: string;
+  re?: string;
+  log?: string;
+  time?: string;
+}) {
+  return request(`${BASE_API_PREFIX}/log/check`, {
+    method: RequestMethod.Post,
+    data,
+  });
+};
+
+export const getHosts = (params) => {
+  return request(`${BASE_API_PREFIX}/targets`, {
+    method: RequestMethod.Get,
+    params,
+  });
+};

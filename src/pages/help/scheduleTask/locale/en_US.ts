@@ -1,0 +1,28 @@
+const en_US = {
+  title: 'Task scheduling',
+  task_name: 'Task name',
+  task_name_placeholder: 'Search task name',
+  task_type: 'Task type',
+  period_type: 'Period type',
+  periodic_task: 'Periodic task',
+  one_time_task: 'One-time task',
+  time_str: 'Time cycle',
+  time_str_tip:
+    'Unused time unit by type By year 02-03 03:00:00 By month 03 03:00:00 by day 03:00:00 by week 7 03:00:00 Interval (seconds) 10',
+  last_exec_at: 'Last execution time',
+  next_exec_at: 'Estimated next execution time',
+  endpoint: 'Endpoint',
+  result: 'Result',
+  run_success: 'Run success',
+  run: 'Run',
+  in_operation: 'In operation',
+  non_execution: 'Non_execution',
+  no: 'No',
+  edit_title: 'Edit scheduling task',
+  year: 'Per annum',
+  month: 'By the month',
+  day: 'everyday',
+  week: 'weekly',
+  seconds: 'Time interval',
+};
+export default en_US;

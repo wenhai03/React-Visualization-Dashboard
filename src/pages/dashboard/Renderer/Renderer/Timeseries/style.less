@@ -1,0 +1,65 @@
+.renderer-timeseries-container {
+  height: 100%;
+}
+.renderer-timeseries-legend-table {
+  .ant-table,
+  .ant-table-wrapper {
+    margin-top: 0 !important;
+  }
+  .ant-table-placeholder .ant-table-cell {
+    height: unset !important;
+    line-height: unset !important;
+    padding: 0 !important;
+  }
+  .ant-table-row.disabled {
+    .ant-table-cell {
+      color: #24292e80
+    }
+  }
+}
+.renderer-timeseries-legend-container {
+  position: relative;
+}
+.renderer-timeseries-legend-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  align-content: flex-start;
+  padding: 0 8px 8px 8px;
+  margin: 8px;
+  cursor: pointer;
+  user-select: none;
+  background: #F9F9F9;
+  & > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  & > div.disabled {
+    color: #24292e80
+  }
+}
+.renderer-timeseries-legend-list-placement-right {
+  & > div {
+    width: 100%;
+  }
+}
+.renderer-timeseries-legend-color-symbol {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+.renderer-timeseries-legend-toggle {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  background: #F9F9F9;
+  width: 16px;
+  text-align: center;
+  cursor: pointer;
+}
