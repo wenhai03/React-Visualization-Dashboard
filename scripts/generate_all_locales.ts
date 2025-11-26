@@ -56,5 +56,3 @@ const content = JSON.stringify(allLocales, null, 2);
 
 fs.writeFileSync(path.resolve(__dirname, 'n9e_locale.json'), content);
 export {};
-
-// Path: scripts/generate_all_locales.js
