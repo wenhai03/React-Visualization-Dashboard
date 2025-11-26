@@ -1,5 +1,7 @@
-# React Visualization Dashboard
 ![1](docs/监控.gif)
+
+
+# React Visualization Dashboard
 
 [![React](https://img.shields.io/badge/React-17.0-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)[README.md](..%2F..%2F10%E6%9C%8822%E6%97%A5%2F%E6%9C%9D%E7%80%9A%E6%99%BA%E7%AD%94%2Fyidafangzhou%2FREADME.md)
