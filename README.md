@@ -1,5 +1,5 @@
 # React Visualization Dashboard
-![演示动画](./docs/dashboard.gif)
+![演示动画](./docs/监控.gif)
 
 [![React](https://img.shields.io/badge/React-17.0-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
