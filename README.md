@@ -1,4 +1,6 @@
-![演示动画](https://i.cetsteam.com/imgs/2025/11/26/805a9bceba2b0b6c.gif)
+![1](./docs/ui.webp)
+
+![演示动画](./docs/dashboard.gif)
 
 # React Visualization Dashboard
 
