@@ -2,6 +2,8 @@
 
 ![演示动画](./docs/dashboard.gif)
 
+[点这里查看交互](https://www.bilibili.com/video/BV1KSSMBdEC2/?spm_id_from=333.1387.upload.video_card.click&vd_source=48301c9249ab015cac1a3548c25d7e7d)
+
 # React Visualization Dashboard
 
 [![React](https://img.shields.io/badge/React-17.0-blue.svg)](https://reactjs.org/)
